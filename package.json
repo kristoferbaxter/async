@@ -1,0 +1,53 @@
+{
+  "name": "@kristoferbaxter/async",
+  "version": "0.0.3",
+  "description": "Async Utilities for Module Node Development.",
+  "main": "dist/index.js",
+  "author": "Kristofer Baxter",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf dist test/output",
+    "build": "tsc -p tsconfig.json",
+    "postbuild": "node build/build.mjs -p dist",
+    "build-test": "tsc -p test/tsconfig.json",
+    "postbuild-test": "node build/test.mjs -p test/output",
+    "pretest": "yarn build-test",
+    "test": "node test/output/test/tests.mjs",
+    "prepublishOnly": "yarn build"
+  },
+  "devDependencies": {
+    "@kristoferbaxter/estree-walker": "2.0.2",
+    "@types/node": "13.13.1",
+    "acorn": "7.1.1",
+    "acorn-import-meta": "1.0.0",
+    "fast-glob": "3.2.2",
+    "husky": "4.2.5",
+    "lint-staged": "10.1.6",
+    "magic-string": "0.25.7",
+    "mri": "1.1.5",
+    "prettier": "2.0.4",
+    "rimraf": "3.0.2",
+    "typescript": "3.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn npm-run-all clean test",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write"
+    ]
+  },
+  "volta": {
+    "node": "14.0.0",
+    "yarn": "1.22.4"
+  },
+  "prettier": {
+    "printWidth": 150,
+    "trailingComma": "all",
+    "parser": "typescript",
+    "singleQuote": true
+  }
+}
