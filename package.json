@@ -5,6 +5,9 @@
   "main": "dist/index.js",
   "author": "Kristofer Baxter",
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "clean": "rimraf dist test/output",
     "build": "tsc -p tsconfig.json",
@@ -31,7 +34,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn npm-run-all clean test",
+      "pre-push": "yarn clean && yarn test",
       "pre-commit": "lint-staged"
     }
   },
