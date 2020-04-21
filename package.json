@@ -2,7 +2,7 @@
   "name": "@kristoferbaxter/async",
   "version": "0.0.3",
   "description": "Async Utilities for Module Node Development.",
-  "main": "dist/index.js",
+  "main": "dist/index.mjs",
   "author": "Kristofer Baxter",
   "license": "MIT",
   "files": [
@@ -10,12 +10,14 @@
   ],
   "scripts": {
     "clean": "rimraf dist test/output",
+    "prebuild": "yarn clean",
     "build": "tsc -p tsconfig.json",
-    "postbuild": "node build/build.mjs -p dist",
+    "postbuild": "node build/build.mjs -p dist --package",
     "build-test": "tsc -p test/tsconfig.json",
     "postbuild-test": "node build/test.mjs -p test/output",
     "pretest": "yarn build-test",
     "test": "node test/output/test/tests.mjs",
+    "release": "yarn build; yarn publish",
     "prepublishOnly": "yarn build"
   },
   "devDependencies": {
@@ -52,5 +54,9 @@
     "trailingComma": "all",
     "parser": "typescript",
     "singleQuote": true
+  },
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./pool": "./dist/pool.mjs"
   }
 }

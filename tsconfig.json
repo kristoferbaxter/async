@@ -18,6 +18,7 @@
     "alwaysStrict": true,
     "incremental": true,
     "esModuleInterop": true,
+    "declaration": true,
   },
   "include": [
     "*.ts"
