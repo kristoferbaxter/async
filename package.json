@@ -1,6 +1,6 @@
 {
   "name": "@kristoferbaxter/async",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Async Utilities for Module Node Development.",
   "main": "dist/index.mjs",
   "author": "Kristofer Baxter",
