@@ -1,8 +1,4 @@
-import mri from 'mri';
-
-const args = mri(process.argv.slice(2), {
-  default: { silent: true },
-});
+const SILENT = true;
 
 /**
  * Conditionally log a message
@@ -10,7 +6,7 @@ const args = mri(process.argv.slice(2), {
  * @param {Array<any>} passed
  */
 export function log(message, ...passed) {
-  if (!args.silent) {
+  if (!SILENT) {
     console.log(message, ...passed);
   }
 }

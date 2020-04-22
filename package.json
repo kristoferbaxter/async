@@ -9,13 +9,16 @@
   "files": [
     "dist"
   ],
+  "engines": {
+    "node": ">=14"
+  },
   "scripts": {
     "clean": "rimraf dist test/output",
     "prebuild": "yarn clean",
     "build": "tsc -p tsconfig.json",
     "postbuild": "node build/build.mjs -p dist --package",
     "build-test": "tsc -p test/tsconfig.json",
-    "postbuild-test": "node build/test.mjs -p test/output",
+    "postbuild-test": "tsc-esm -p test/output",
     "pretest": "yarn build-test",
     "test": "node test/output/test/tests.mjs",
     "release": "yarn build; yarn publish",
@@ -33,7 +36,8 @@
     "mri": "1.1.5",
     "prettier": "2.0.4",
     "rimraf": "3.0.2",
-    "typescript": "3.8.3"
+    "typescript": "3.8.3",
+    "typescript-esm": "0.0.3"
   },
   "husky": {
     "hooks": {

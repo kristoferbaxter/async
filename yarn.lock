@@ -83,6 +83,11 @@ acorn-import-meta@1.0.0:
   resolved "https://registry.yarnpkg.com/acorn-import-meta/-/acorn-import-meta-1.0.0.tgz#6cff1f01db3b60148934823d3d2dd0c08354aead"
   integrity sha512-yX652u86bKzuM+mzEHV84T0R+srQwTOmprUiFC3zlhlc02lBQzqxkB/H/7jexX9vlz/TRuQiZs9mKEDK3bbmhw==
 
+acorn-import-meta@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/acorn-import-meta/-/acorn-import-meta-1.1.0.tgz#c384423462ee7d4721d4de83231021a36cb09def"
+  integrity sha512-pshgiVR5mhpjFVdizKTN+kAGRqjJFUOEB3TvpQ6kiAutb1lvHrIVVcGoe5xzMpJkVNifCeymMG7/tsDkWn8CdQ==
+
 acorn@7.1.1:
   version "7.1.1"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-7.1.1.tgz#e35668de0b402f359de515c5482a1ab9f89a69bf"
@@ -1018,6 +1023,18 @@ tslib@^1.9.0:
   version "1.11.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.11.1.tgz#eb15d128827fbee2841549e171f45ed338ac7e35"
   integrity sha512-aZW88SY8kQbU7gpV19lN24LtXh/yD4ZZg6qieAJDDg+YBsJcSmLGK9QpnUjAKVG/xefmvJGd1WUmfpT/g6AJGA==
+
+typescript-esm@0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/typescript-esm/-/typescript-esm-0.0.3.tgz#5dc998f7d759e516ef65f0f058c6b87c27cc27b5"
+  integrity sha512-SxTSNCX2pHYhC114C+c3SrngGDz7SxIfmCkzQ9lJrD5OMCJ7z0mvc3Ez7GIVNivAe+mXOEY9I5sVHZwF0DMrcw==
+  dependencies:
+    "@kristoferbaxter/estree-walker" "2.0.2"
+    acorn "7.1.1"
+    acorn-import-meta "1.1.0"
+    fast-glob "3.2.2"
+    magic-string "0.25.7"
+    mri "1.1.5"
 
 typescript@3.8.3:
   version "3.8.3"
