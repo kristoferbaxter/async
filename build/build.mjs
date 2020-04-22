@@ -38,6 +38,21 @@ const args = mri(process.argv.slice(2), {
 
     output += `export {${namesToExport.join(',')}};`;
     await fs.writeFile(path.join(path.resolve(args.path), 'index.mjs'), output, 'utf8');
+    await fs.writeFile(path.join(path.resolve(args.path), 'index.js'), output, 'utf8');
+  }
+
+  if (toExport.size > 0) {
+    log('create merged type defintions');
+    let output = '';
+    for (const filePath of filePaths) {
+      const basename = path.basename(filePath, path.extname(filePath));
+      const definitionsFilePath = path.join(path.dirname(filePath), basename + '.d.ts');
+      const definitionsContent = await fs.readFile(definitionsFilePath, 'utf8');
+
+      output += definitionsContent;
+    }
+
+    await fs.writeFile(path.join(path.resolve(args.path), 'index.d.ts'), output, 'utf8');
   }
 
   if (toExport.size > 0 && args.package) {

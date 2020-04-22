@@ -2,7 +2,8 @@
   "name": "@kristoferbaxter/async",
   "version": "0.0.4",
   "description": "Async Utilities for Module Node Development.",
-  "main": "dist/index.mjs",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "author": "Kristofer Baxter",
   "license": "MIT",
   "files": [
