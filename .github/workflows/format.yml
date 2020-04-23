@@ -9,13 +9,14 @@ jobs:
       matrix:
         node-version: [14.x]
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
     - name: Format
-    - run: yarn install; yarn format
+      run: yarn install; yarn format
     - name: Commit
       uses: stefanzweifel/git-auto-commit-action@v4.1.2
       with:
