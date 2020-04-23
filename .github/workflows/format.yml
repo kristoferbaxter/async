@@ -14,16 +14,11 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
-        node-version: ${{ matrix.node-version }}
     - name: Format
       run: yarn install; yarn format
-    - name: Commit
-      run: |
-        git config --local user.email "kristofer@kristoferbaxter.com"
-        git config --local user.name "Kristofer Baxter"
-        git pull origin ${{ github.head_ref }}
-        git commit -m "Prettier Formatting" -a
-    - name: Push Changes
-      uses: ad-m/github-push-action@master
+    - name: Push changes
+      uses: kristoferbaxter/github-push-action@master
       with:
+        force: true
         github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.head_ref }}
