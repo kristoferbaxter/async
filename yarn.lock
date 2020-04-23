@@ -236,10 +236,10 @@ to-regex-range@^5.0.1:
   dependencies:
     is-number "^7.0.0"
 
-typescript-esm@0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/typescript-esm/-/typescript-esm-0.0.3.tgz#5dc998f7d759e516ef65f0f058c6b87c27cc27b5"
-  integrity sha512-SxTSNCX2pHYhC114C+c3SrngGDz7SxIfmCkzQ9lJrD5OMCJ7z0mvc3Ez7GIVNivAe+mXOEY9I5sVHZwF0DMrcw==
+typescript-esm@0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/typescript-esm/-/typescript-esm-0.0.5.tgz#c42bb10cbfdf3fc6d2466dd564f1804f44ca365b"
+  integrity sha512-PFGred/6JV3n+qmBoJO4Y9wNQ/gkmzf7fViTJ48jht7TAQtMYz7J67U/2NkjaBb+w+TCpUitJPrca1oq4+X37Q==
   dependencies:
     "@kristoferbaxter/estree-walker" "2.0.2"
     acorn "7.1.1"
