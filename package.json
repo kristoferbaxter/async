@@ -14,11 +14,11 @@
     "format": "prettier --write '**/*.ts'",
     "prebuild": "yarn clean",
     "build": "tsc -p tsconfig.json",
-    "postbuild": "node build/build.mjs -p dist --package",
+    "postbuild": "node --experimental-modules build/build.mjs -p dist --package",
     "build-test": "tsc -p test/tsconfig.json",
     "postbuild-test": "tsc-esm -p test/output",
     "pretest": "yarn build-test",
-    "test": "node test/output/test/tests.mjs",
+    "test": "node --experimental-modules test/output/test/tests.mjs",
     "release": "yarn build; yarn publish",
     "prepublishOnly": "yarn build"
   },
