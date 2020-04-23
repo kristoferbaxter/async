@@ -15,9 +15,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: Format
-      run: |
-        yarn install
-        yarn format
+    - run: yarn install
+    - run: yarn format
     - name: Commit
       uses: stefanzweifel/git-auto-commit-action@v4.1.2
       with:
