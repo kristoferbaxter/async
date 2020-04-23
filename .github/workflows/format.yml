@@ -18,7 +18,11 @@ jobs:
     - name: Format
       run: yarn install; yarn format
     - name: Commit
-      uses: stefanzweifel/git-auto-commit-action@v4.1.2
+      run: |
+        git config --local user.email "kristofer@kristoferbaxter.com"
+        git config --local user.name "Kristofer Baxter"
+        git commit -m "Prettier Formatting" -a
+    - name: Push Changes
+      uses: ad-m/github-push-action@master
       with:
-        commit_message: Apply formatting changes
-        branch: ${{ github.head_ref }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
