@@ -10,45 +10,33 @@
     "dist"
   ],
   "engines": {
-    "node": ">=14"
+    "node": ">=12"
   },
   "scripts": {
     "clean": "rimraf dist test/output",
+    "format": "prettier --write '**/*.ts'",
     "prebuild": "yarn clean",
     "build": "tsc -p tsconfig.json",
-    "postbuild": "node build/build.mjs -p dist --package",
+    "postbuild": "node --experimental-modules build/build.mjs -p dist --package",
     "build-test": "tsc -p test/tsconfig.json",
     "postbuild-test": "tsc-esm -p test/output",
     "pretest": "yarn build-test",
-    "test": "node test/output/test/tests.mjs",
+    "test": "node --experimental-modules test/output/test/tests.mjs",
     "release": "yarn build; yarn publish",
     "prepublishOnly": "yarn build"
   },
   "devDependencies": {
     "@kristoferbaxter/estree-walker": "2.0.2",
-    "@types/node": "13.13.1",
+    "@types/node": "13.13.2",
     "acorn": "7.1.1",
     "acorn-import-meta": "1.0.0",
     "fast-glob": "3.2.2",
-    "husky": "4.2.5",
-    "lint-staged": "10.1.6",
     "magic-string": "0.25.7",
     "mri": "1.1.5",
-    "prettier": "2.0.4",
+    "prettier": "2.0.5",
     "rimraf": "3.0.2",
     "typescript": "3.8.3",
-    "typescript-esm": "0.0.3"
-  },
-  "husky": {
-    "hooks": {
-      "pre-push": "yarn clean && yarn test",
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.ts": [
-      "prettier --write"
-    ]
+    "typescript-esm": "0.0.6"
   },
   "volta": {
     "node": "14.0.0",
