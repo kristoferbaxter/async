@@ -21,6 +21,7 @@ jobs:
       run: |
         git config --local user.email "kristofer@kristoferbaxter.com"
         git config --local user.name "Kristofer Baxter"
+        git pull origin ${{ github.head_ref }}
         git commit -m "Prettier Formatting" -a
     - name: Push Changes
       uses: ad-m/github-push-action@master
