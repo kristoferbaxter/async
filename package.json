@@ -9,9 +9,6 @@
   "files": [
     "dist"
   ],
-  "engines": {
-    "node": ">=14"
-  },
   "scripts": {
     "clean": "rimraf dist test/output",
     "format": "prettier --write '**/*.ts'",
@@ -31,25 +28,12 @@
     "acorn": "7.1.1",
     "acorn-import-meta": "1.0.0",
     "fast-glob": "3.2.2",
-    "husky": "4.2.5",
-    "lint-staged": "10.1.6",
     "magic-string": "0.25.7",
     "mri": "1.1.5",
     "prettier": "2.0.4",
     "rimraf": "3.0.2",
     "typescript": "3.8.3",
     "typescript-esm": "0.0.3"
-  },
-  "husky": {
-    "hooks": {
-      "pre-push": "yarn clean && yarn test",
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.ts": [
-      "prettier --write"
-    ]
   },
   "volta": {
     "node": "14.0.0",
