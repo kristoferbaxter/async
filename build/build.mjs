@@ -1,8 +1,8 @@
 import * as path from 'path';
 import { promises as fs } from 'fs';
 import mri from 'mri';
-import { log } from './log.mjs';
 import { format } from 'typescript-esm';
+import { log } from './log.mjs';
 
 const args = mri(process.argv.slice(2), {
   alias: { p: 'path' },
