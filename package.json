@@ -36,7 +36,7 @@
     "prettier": "2.0.5",
     "rimraf": "3.0.2",
     "typescript": "3.8.3",
-    "typescript-esm": "0.0.6"
+    "typescript-esm": "1.0.1"
   },
   "volta": {
     "node": "14.0.0",

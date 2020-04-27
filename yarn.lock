@@ -441,10 +441,10 @@ to-regex-range@^5.0.1:
   dependencies:
     is-number "^7.0.0"
 
-typescript-esm@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/typescript-esm/-/typescript-esm-1.0.0.tgz#1b240f83400a7be80c168cf2aec0e82fd606d215"
-  integrity sha512-eH443peyAFKGbqErlfBPPbTGhVLP9/L4EEVqc9fSgLVuMpJmp8gXP2LfnomEWx6Cel+8mjR5sa0KQ0eqpwY7Pg==
+typescript-esm@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/typescript-esm/-/typescript-esm-1.0.1.tgz#75f1ad680ab10c555e9817f729fa99406f621953"
+  integrity sha512-6vckyxpBp9bkZ7a1sqxcepTWJubpUJLEtIZqTxroiVc9RX04aYxoXt3KhWfRz6/voazUcafdhNGffmV4872wpA==
   dependencies:
     "@kristoferbaxter/estree-walker" "2.0.2"
     acorn "7.1.1"
