@@ -441,10 +441,10 @@ to-regex-range@^5.0.1:
   dependencies:
     is-number "^7.0.0"
 
-typescript-esm@0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/typescript-esm/-/typescript-esm-0.0.6.tgz#8c5295e480a8afae89dc098651b42bf2c2d62764"
-  integrity sha512-PDE+Fz0NEao2Yoqmh0xFaPbAuwEprFAUH6LpFqgJaa8LDU+XkAk+gb9TA0Vkwd11Dqk1EYlXPThWLWnjdGpv9g==
+typescript-esm@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/typescript-esm/-/typescript-esm-1.0.0.tgz#1b240f83400a7be80c168cf2aec0e82fd606d215"
+  integrity sha512-eH443peyAFKGbqErlfBPPbTGhVLP9/L4EEVqc9fSgLVuMpJmp8gXP2LfnomEWx6Cel+8mjR5sa0KQ0eqpwY7Pg==
   dependencies:
     "@kristoferbaxter/estree-walker" "2.0.2"
     acorn "7.1.1"
@@ -453,6 +453,7 @@ typescript-esm@0.0.6:
     magic-string "0.25.7"
     mri "1.1.5"
     promise.allsettled "1.0.2"
+    typescript "3.8.3"
 
 typescript@3.8.3:
   version "3.8.3"

@@ -1,18 +1,24 @@
 import * as path from 'path';
 import { promises as fs } from 'fs';
 import mri from 'mri';
-import { format } from 'typescript-esm';
-import { log } from './log.mjs';
+import { config, format, log } from 'typescript-esm';
 
 const args = mri(process.argv.slice(2), {
-  alias: { p: 'path' },
-  default: { path: process.cwd(), package: false },
+  alias: { p: 'project' },
+  default: { package: false },
 });
 
 (async function () {
-  const formatted = await format(args.path);
-  log('prepare filePaths', { formatted });
+  if (args.project === undefined) {
+    console.log('You must specify a project either via --project or -p');
+    return;
+  }
 
+  const configuration = config(args.project);
+  const formatted = await format(args.project, configuration);
+  const basepath = './dist';
+  log('prepare filePaths', { formatted });
+  
   if (formatted.size > 0) {
     log('create index.mjs containing all helpers');
     const namesToExport = [];
@@ -21,12 +27,12 @@ const args = mri(process.argv.slice(2), {
     for (const filePath of formatted) {
       const exportName = path.basename(filePath, path.extname(filePath));
       namesToExport.push(exportName);
-      output += `import {${exportName}} from '${'./' + path.relative(args.path, filePath)}';\n`;
+      output += `import {${exportName}} from '${'./' + path.relative(basepath, filePath)}';\n`;
     }
 
     output += `export {${namesToExport.join(',')}};`;
-    await fs.writeFile(path.join(path.resolve(args.path), 'index.mjs'), output, 'utf8');
-    await fs.writeFile(path.join(path.resolve(args.path), 'index.js'), output, 'utf8');
+    await fs.writeFile(path.join(path.resolve(basepath), 'index.mjs'), output, 'utf8');
+    await fs.writeFile(path.join(path.resolve(basepath), 'index.js'), output, 'utf8');
   }
 
   if (formatted.size > 0) {
@@ -40,7 +46,7 @@ const args = mri(process.argv.slice(2), {
       output += definitionsContent;
     }
 
-    await fs.writeFile(path.join(path.resolve(args.path), 'index.d.ts'), output, 'utf8');
+    await fs.writeFile(path.join(path.resolve(basepath), 'index.d.ts'), output, 'utf8');
   }
 
   if (formatted.size > 0 && args.package) {
