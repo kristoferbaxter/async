@@ -5,7 +5,7 @@
     "lib": [
       "esnext"
     ],
-    "outDir": "dist",
+    "outDir": "../dist",
     "sourceMap": false,
     "moduleResolution": "node",
     "target": "esnext",

@@ -1,5 +1,5 @@
 import * as assert from 'assert';
-import { pool } from '../../pool';
+import { pool } from '../../src/pool';
 
 export const tests: Map<string, () => Promise<void>> = new Map([
   [
