@@ -7,7 +7,7 @@ export const tests: Map<string, () => Promise<void>> = new Map([
     async function () {
       const results: Array<number> = [];
       const timeout = (item: number) =>
-        new Promise((resolve) =>
+        new Promise<void>((resolve) =>
           setTimeout(() => {
             results.push(item);
             resolve();
@@ -23,7 +23,7 @@ export const tests: Map<string, () => Promise<void>> = new Map([
     async function () {
       const results: Array<number> = [];
       const timeout = (item: number) =>
-        new Promise((resolve) =>
+        new Promise<void>((resolve) =>
           setTimeout(() => {
             results.push(item);
             resolve();
