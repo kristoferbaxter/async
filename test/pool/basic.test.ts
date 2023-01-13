@@ -1,6 +1,8 @@
 import * as assert from 'assert';
 import { pool } from '../../src/pool';
 
+function expectType<T>(arg: T) {}
+
 export const tests: Map<string, () => Promise<void>> = new Map([
   [
     'runs as many promises in parallel as specified by concurrency',
@@ -38,6 +40,22 @@ export const tests: Map<string, () => Promise<void>> = new Map([
     async function () {
       const timeout = () => Promise.reject();
       assert.rejects(pool([100, 500, 300, 200], timeout, 5));
+    },
+  ],
+  [
+    'returns a single Promise containing an array of results',
+    async function () {
+      const double = (item: number) =>
+        new Promise<number>((resolve) =>
+          setTimeout(() => {
+            resolve(item * 2);
+          }, item),
+        );
+
+      const items = [100, 500, 300, 200];
+      const results = await pool(items, double);
+      expectType<number[]>(results);
+      assert.deepStrictEqual(results, [200, 1000, 600, 400]);
     },
   ],
 ]);
